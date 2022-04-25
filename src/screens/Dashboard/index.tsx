@@ -8,7 +8,7 @@ import {
 export function Dashboard() {
     return (
         <Container>
-            <Title>Ola</Title>
+            <Title>Leonardo</Title>
         </Container>
     )
 }
