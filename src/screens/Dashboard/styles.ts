@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {Feather} from '@expo/vector-icons';
 import { RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
@@ -17,6 +18,9 @@ export const Header = styled.View`
 export const UserContainer = styled.View`
     width: 100%;
     padding:0 25px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 export const UserInfo = styled.View`
@@ -44,4 +48,19 @@ export const UserName = styled.Text`
     color: ${({theme})=> theme.colors.shape};
     font-size: ${RFValue(17)}px;
     font-family:${({theme})=> theme.fonts.bold};
+`;
+
+export const Icon = styled(Feather)`
+  font-size: ${RFValue(20)}px;
+  color: ${({ theme }) => theme.colors.secondary};
+` as unknown as typeof Feather;
+
+export const HighlightCards = styled.ScrollView.attrs({
+    horizontal: true,
+    showsHorizontalScrollIndicator: false,
+    contentContainerStyle: {paddingHorizontal:24}
+})`
+    width:100%;
+    position: absolute;
+    margin-top: ${RFPercentage(30)}px ;
 `;

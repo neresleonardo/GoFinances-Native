@@ -9,6 +9,9 @@
     "web": "expo start --web",
     "eject": "expo eject"
   },
+  "resolutions": {
+    "@types/react": "^17"
+  },
   "dependencies": {
     "@expo-google-fonts/poppins": "^0.2.2",
     "@types/styled-components": "^5.1.25",
