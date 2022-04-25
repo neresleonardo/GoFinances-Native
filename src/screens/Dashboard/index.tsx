@@ -2,13 +2,29 @@ import React from "react";
 
 import {
     Container,
-    Title
+    Header,
+    UserInfo,
+    Photo,
+    User,
+    UserContainer,
+    UserGreeting,
+    UserName
        } from './styles'
 
 export function Dashboard() {
     return (
         <Container>
-            <Title>Leonardo</Title>
+            <Header>
+                <UserContainer>
+                    <UserInfo>
+                        <Photo source={{uri:'https://github.com/neresleonardo.png'}} />
+                        <User>
+                            <UserGreeting>Olá,</UserGreeting>
+                            <UserName>Leonardo</UserName>
+                        </User>
+                    </UserInfo>
+                </UserContainer>
+            </Header>
         </Container>
     )
 }
