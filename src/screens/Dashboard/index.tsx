@@ -1,5 +1,6 @@
 import React from "react";
 import { HighlightCard } from "../../components/HighlightCard";
+import { TransactionsCard } from "../../components/TransactionCard";
 
 import {
     Container,
@@ -13,10 +14,39 @@ import {
     Icon,
     HighlightCards,
     Transactions,
-    Title
+    Title,
+    TransactionsList
        } from './styles'
 
 export function Dashboard() {
+
+    const data = [
+       {    title:"Desenvolvimentro de site",
+            amount:"R$ 20.0000",
+            category:{
+            name:"Vendas",
+            icon:"dollar-sign"
+        },
+        date:"12/12/1998"
+        },
+        {    title:"Desenvolvimentro de site",
+        amount:"R$ 20.0000",
+        category:{
+        name:"Vendas",
+        icon:"dollar-sign"
+    },
+    date:"12/12/1998"
+    },
+    {    title:"Desenvolvimentro de site",
+    amount:"R$ 20.0000",
+    category:{
+    name:"Vendas",
+    icon:"dollar-sign"
+},
+date:"12/12/1998"
+},
+    ];
+
     return (
         <Container>
             <Header>
@@ -39,6 +69,13 @@ export function Dashboard() {
 
             <Transactions>
                 <Title>Listagem</Title>
+
+                <TransactionsList
+                    data={data}
+                    renderItem={({ item }) => <TransactionsCard data={item} />}
+                    showsVerticalScrollIndicator={false}
+              />
+               
             </Transactions>
         </Container>
     )
