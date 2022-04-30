@@ -1,6 +1,8 @@
-import styled from 'styled-components/native';
-import {Feather} from '@expo/vector-icons';
-import { RFPercentage, RFValue} from 'react-native-responsive-fontsize';
+import styled from "styled-components/native";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import { Feather } from '@expo/vector-icons';
+import { FlatList, FlatListProps } from 'react-native';
+import { DateListProps } from ".";
 
 export const Container = styled.View`
     flex: 1;
@@ -79,4 +81,9 @@ export const Title = styled.Text`
     margin-bottom: 16px;
 `;
 
-export const TransactionsList = styled.FlatList``;
+export const TransactionList = styled(
+    FlatList as new (props: FlatListProps<DateListProps>) => FlatList<DateListProps>
+  ).attrs({
+    showsVerticalScrollIndicator: false,
+    contentContainerStyle: { paddingBottom: 10 },
+  })``;

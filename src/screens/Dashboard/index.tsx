@@ -1,6 +1,6 @@
 import React from "react";
 import { HighlightCard } from "../../components/HighlightCard";
-import { TransactionsCard } from "../../components/TransactionCard";
+import { TransactionsCard, TransactionsCardProps } from "../../components/TransactionCard";
 
 import {
     Container,
@@ -15,13 +15,20 @@ import {
     HighlightCards,
     Transactions,
     Title,
-    TransactionsList
+    TransactionList
        } from './styles'
+
+export interface DateListProps extends TransactionsCardProps {
+    id: string;
+}
 
 export function Dashboard() {
 
     const data = [
-       {    title:"Desenvolvimentro de site",
+       {   
+            id: '1',
+            type: 'positive',
+            title:"Desenvolvimentro de site",
             amount:"R$ 20.0000",
             category:{
             name:"Vendas",
@@ -29,22 +36,28 @@ export function Dashboard() {
         },
         date:"12/12/1998"
         },
-        {    title:"Desenvolvimentro de site",
+        {
+        id: '2',
+        type: 'negative',    
+        title:"Desenvolvimentro de site",
         amount:"R$ 20.0000",
         category:{
-        name:"Vendas",
-        icon:"dollar-sign"
+        name:"Alimentação",
+        icon:"coffee"
     },
     date:"12/12/1998"
     },
-    {    title:"Desenvolvimentro de site",
-    amount:"R$ 20.0000",
-    category:{
-    name:"Vendas",
-    icon:"dollar-sign"
-},
-date:"12/12/1998"
-},
+    {
+        id: '3',
+        type: 'negative',    
+        title:"Desenvolvimentro de site",
+        amount:"R$ 20.0000",
+        category:{
+        name:"Vendas",
+        icon:"shopping-bag"
+    },
+    date:"12/12/1998"
+    },
     ];
 
     return (
@@ -70,10 +83,11 @@ date:"12/12/1998"
             <Transactions>
                 <Title>Listagem</Title>
 
-                <TransactionsList
+                <TransactionList
                     data={data}
-                    renderItem={({ item }) => <TransactionsCard data={item} />}
-                    showsVerticalScrollIndicator={false}
+                    keyExtractor={item => item.id}
+                    renderItem={({ item }) => <TransactionsCard data={item} 
+                />}
               />
                
             </Transactions>
