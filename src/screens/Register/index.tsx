@@ -53,7 +53,7 @@ export function Register() {
                         />
                     </TransactionsType>
 
-                    <ComponentSelect />
+                    <ComponentSelect title='Categoria' />
                 </Fields>
                 <Button
                     title="Enviar"
